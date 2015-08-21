@@ -9,6 +9,7 @@ public class LoginManager : MonoBehaviour {
 	//instanciate new script and put on second screen.
 	public Text totalGold;
 	public Button loginButton;
+	public LevelManager levelManager;
 
 	void Start (){
 		loginButton  = GameObject.Find ("LoginButton").GetComponent<Button>();
@@ -28,7 +29,7 @@ public class LoginManager : MonoBehaviour {
 		passWord = GameObject.Find ("Password").GetComponent<InputField>().text;
 		//check user and password
 		if (userName == "Admin" && passWord == "password" || userName == "Admin1" && passWord == "password"){
-			LevelManager.LoadLevel("MainMenu");
+			levelManager.LoadLevel("MainMenu");
 		}else{
 		};
 	}

@@ -50,7 +50,7 @@
      <Compile Include="Assets\Money.cs" />
      <Compile Include="Assets\_Scripts\LevelManager.cs" />
      <Compile Include="Assets\_Scripts\LoginManager.cs" />
-     <Compile Include="Assets\_Scripts\Money.cs" />
+     <Compile Include="Assets\_Scripts\MoneyManager.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>
