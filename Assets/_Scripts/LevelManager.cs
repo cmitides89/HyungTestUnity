@@ -1,13 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class LevelManager : MonoBehaviour {
+public class LevelManager 
+{
 
-	public void LoadLevel(string name){
+	public static void LoadLevel(string name)
+	{
 		Debug.Log ("New Level Load: " + name);
 		Application.LoadLevel (name);
 	}
-	public void QuitRequest(){
+	public static void QuitRequest()
+	{
 		Debug.Log ("Quit requested");
 		Application.Quit ();
 	}
