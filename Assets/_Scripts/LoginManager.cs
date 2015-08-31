@@ -10,6 +10,8 @@ public class LoginManager : MonoBehaviour {
 	public static Text totalGold;
 	public Image loginButton;
 	public string goldStrg;
+	public Image RepairButton;
+	public Image SellButton;
 	//public LevelManager levelManager;
 
 	void Start ()
@@ -21,6 +23,10 @@ public class LoginManager : MonoBehaviour {
 		{
 			totalGold = GameObject.Find("TotalGold").GetComponent<Text>();
 			MoneyManager.convertString(totalGold);
+		}else if (Application.loadedLevelName == "Shop")
+		{
+			RepairFunction();
+			SellFunction();
 		}
 	}	
 	void Update ()
@@ -47,6 +53,16 @@ public class LoginManager : MonoBehaviour {
 			Debug.Log("Else Statement");
 			Debug.Log(userName + passWord);
 		};
+	}
+	public void RepairFunction()
+	{
+		RepairButton = GameObject.Find("RepairButton").GetComponent<Image>();
+		
+		
+	}
+	public void SellFunction()
+	{
+		SellButton = GameObject.Find("SellButton").GetComponent<Image>();
 	}
 	// public void GetUserInfo(string username, string password)
 	// {
