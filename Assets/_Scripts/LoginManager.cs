@@ -4,14 +4,17 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class LoginManager : MonoBehaviour {
-	public static string userName;
+	public string userName;
 	public string passWord;
 	//instanciate new script and put on second screen.
-	public static Text totalGold;
 	public Image loginButton;
-	public string goldStrg;
 	public Image RepairButton;
 	public Image SellButton;
+	public string str1;
+	public string str2;
+	public int int1;
+	public int int2;
+	
 	//public LevelManager levelManager;
 
 	void Start ()
@@ -21,13 +24,14 @@ public class LoginManager : MonoBehaviour {
 			loginButton  = GameObject.Find ("LoginButton").GetComponent<Image>();
 		}else if (Application.loadedLevelName == "MainMenu")
 		{
-			totalGold = GameObject.Find("TotalGold").GetComponent<Text>();
-			MoneyManager.convertString(totalGold);
+			
+			//MoneyManager.convertString(totalGold);
 		}else if (Application.loadedLevelName == "Shop")
 		{
-			RepairFunction();
-			SellFunction();
+			//RepairFunction();
+			//SellFunction();
 		}
+		
 	}	
 	void Update ()
 	{
@@ -44,26 +48,35 @@ public class LoginManager : MonoBehaviour {
 		//better way to write it
 		userName = GameObject.Find ("UserName").GetComponent<InputField>().text;
 		passWord = GameObject.Find ("Password").GetComponent<InputField>().text;
+		//string UserName = LevelManager.UserName;
+		//string UserName2 = LevelManager.UserName2;
 		//check user and password
-		if (userName == "Admin" && passWord == "password"
-		 	|| userName == "Admin1" && passWord == "password1")
+		
+
+		LevelManager.initalize( ref str1, ref str2, ref int1, ref int2);
+		Debug.Log(str1);
+		string UserName = str1;
+		string UserName2 = str2;
+		if (userName == UserName && passWord == "password"
+		 	|| userName == UserName2 && passWord == "password1")
 		{
+			Debug.Log("the user name" + UserName);
 			Application.LoadLevel("MainMenu");
 		}else{
 			Debug.Log("Else Statement");
 			Debug.Log(userName + passWord);
 		};
 	}
-	public void RepairFunction()
-	{
-		RepairButton = GameObject.Find("RepairButton").GetComponent<Image>();
+	//public void RepairFunction()
+	//{
+	//	RepairButton = GameObject.Find("RepairButton").GetComponent<Image>();
 		
 		
-	}
-	public void SellFunction()
-	{
-		SellButton = GameObject.Find("SellButton").GetComponent<Image>();
-	}
+	//}
+	//public void SellFunction()
+	//{
+	//	SellButton = GameObject.Find("SellButton").GetComponent<Image>();
+	//}
 	// public void GetUserInfo(string username, string password)
 	// {
 	// 	username = GameObject.Find ("UserName").GetComponent<InputField>().text;
