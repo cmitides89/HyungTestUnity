@@ -9,20 +9,20 @@ public class MainMenu : MonoBehaviour {
 	public string str2;
 	public int int1;
 	public int int2;
-	public Text totalGold;
+	public static Text totalGold;
 	public Image ShopButton;
 	// Use this for initialization
 	void Start () {
-		DisplayUserInfo();
 		totalGold = GameObject.Find("TotalGold").GetComponent<Text>();
 		ShopButton = GameObject.Find("ShopButton").GetComponent<Image>();
+		DisplayUserInfo();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
 	}
-	void DisplayUserInfo()
+	public void DisplayUserInfo()
 	{
 		LevelManager.initalize( ref str1, 
 								ref str2, 
@@ -37,8 +37,8 @@ public class MainMenu : MonoBehaviour {
 			goldStrg = goldToStringFunction(int1);
 			totalGold.text = goldStrg;
 		}else if(UserName2 != str1){
-			goldString = goldToStringFunction(int2);
-			totalGold.text = goldString;
+			goldStrg = goldToStringFunction(int2);
+			totalGold.text = goldStrg;
 		};
 	}
 	public void ShopFunction()
@@ -48,6 +48,7 @@ public class MainMenu : MonoBehaviour {
 	//Convert gold from number to Text
 	public string goldToStringFunction(int goldInt)
 	{
+		string goldString;
 		goldString = goldInt.ToString();
 		return goldString;
 	}
